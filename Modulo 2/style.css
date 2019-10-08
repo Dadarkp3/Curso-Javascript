@@ -1,0 +1,28 @@
+button {
+  width: 10rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 40px;
+  background: #00bcd4;
+  color: white;
+  text-transform: uppercase;
+  font-size: 9px;
+}
+
+button:hover {
+  background-color: #00aff9;
+  cursor: pointer;
+}
+
+.squares {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 110px 110px 110px 110px;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  background: red;
+  margin: 1rem;
+}
