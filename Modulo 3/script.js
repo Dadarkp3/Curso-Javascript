@@ -7,31 +7,34 @@ function checaIdade(idade) {
     }
   });
 }
-/*checaIdade(12)
+
+checaIdade(12)
   .then(function() {
     console.log("Maior que 18");
   })
   .catch(function() {
     console.log("Menor que 18");
   });
-*/
+
 function search() {
   var input = document.querySelector("input");
   var ul = document.querySelector("ul");
-  var li = document.createElement("li");
-  li.innerText = "Carregando...";
-  ul.appendChild(li);
+  ul.appendChild(createElementandText("li", "Carregando..."));
   axios
     .get("https://api.github.com/users/" + input.value + "/repos")
     .then(function(response) {
       ul.innerHTML = "";
       for (repo of response.data) {
-        var li = document.createElement("li");
-        li.innerText = repo.name;
-        ul.appendChild(li);
+        ul.appendChild(createElementandText("li", repo.name));
       }
     })
     .catch(function(error) {
       console.warn(error);
     });
+}
+
+function createElementandText(element, text) {
+  var li = document.createElement("li");
+  li.innerText = text;
+  return li;
 }
